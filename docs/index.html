@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Operating Systems from the Bare Metal Up</title>
+<meta name="description" content="A book that teaches operating systems by building one, logOS, on a simulated RISC-V computer. Sample chapters, example code and set-up instructions.">
+<style>
+  :root {
+    --bg: #fbfaf6; --ink: #1c2530; --muted: #5a6573; --rule: #dcd6c8;
+    --accent: #1f5f9e; --panel: #ffffff; --code-bg: #f1eee6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #141a21; --ink: #e9e6de; --muted: #a3acb8; --rule: #323c48;
+            --accent: #7fb4ea; --panel: #1b232c; --code-bg: #222c37; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font: 18px/1.6 Georgia, "Iowan Old Style", "Palatino Linotype", serif; }
+  main { max-width: 46rem; margin: 0 auto; padding: 3.5rem 1.25rem 4rem; }
+  h1 { font-size: clamp(2rem, 6vw, 3rem); line-height: 1.12; margin: 0 0 .5rem; letter-spacing: -.01em; }
+  .sub { font-size: 1.25rem; color: var(--muted); margin: 0 0 .4rem; }
+  .author { margin: 0 0 2.2rem; }
+  h2 { font: 600 1.05rem/1.3 system-ui, -apple-system, "Segoe UI", sans-serif; letter-spacing: .06em;
+       text-transform: uppercase; color: var(--muted); margin: 2.8rem 0 .8rem;
+       padding-top: 1.4rem; border-top: 1px solid var(--rule); }
+  p { margin: 0 0 1rem; }
+  a { color: var(--accent); text-underline-offset: .15em; }
+  .button { display: inline-block; margin: .4rem 0 0; padding: .7rem 1.2rem; border-radius: .4rem;
+            background: var(--accent); color: var(--bg); text-decoration: none;
+            font: 600 1rem system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .note { color: var(--muted); font-size: .95rem; }
+  ol, ul { padding-left: 1.3rem; margin: 0 0 1rem; }
+  li { margin: .35rem 0; }
+  code, pre { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: .88em; }
+  code { background: var(--code-bg); padding: .08em .35em; border-radius: .25rem; }
+  pre { background: var(--code-bg); padding: .9rem 1rem; border-radius: .4rem; overflow-x: auto; margin: 0 0 1rem; }
+  pre code { background: none; padding: 0; }
+  table { border-collapse: collapse; width: 100%; margin: 0 0 1rem; font-size: .95rem; }
+  th, td { text-align: left; padding: .45rem .6rem .45rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  th { font: 600 .85rem system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--muted); }
+  .scroll { overflow-x: auto; }
+  footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: .9rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Operating Systems from the Bare Metal Up</h1>
+  <p class="sub">Building logOS on a simulated RISC-V computer</p>
+  <p class="author">Pavel Gladyshev</p>
+
+  <p>This book teaches operating systems by building one. It starts with a small RISC-V computer
+  that you can inspect down to the gates, and climbs from the hardware upwards: assembly language
+  and C with nothing underneath, then a file system, system calls and a shell, then processes,
+  interrupts and pipes, and finally virtual memory and protection. Along the way a small Unix-like
+  system, logOS, grows through three versions, and every listing in the book is code you can
+  build, run and change.</p>
+
+  <h2>Read a sample</h2>
+  <p>Two chapters of the draft: Chapter 1, the introduction to operating systems and to the book,
+  and Chapter 11, where a bouncing-dot game leads to coroutines and cooperative multitasking.</p>
+  <p><a class="button" href="sample-chapters.pdf">Sample chapters (PDF)</a></p>
+  <p class="note">The book is in preparation and the text may change.</p>
+
+  <h2>What is in the book</h2>
+  <div class="scroll">
+  <table>
+    <tr><th>Part</th><th>Chapters</th><th>logOS version</th></tr>
+    <tr><td>Introduction</td><td>1. What is an operating system?</td><td></td></tr>
+    <tr><td>I. The machine</td><td>2–4. RISC-V assembly, the toolchain, C on bare metal</td><td></td></tr>
+    <tr><td>II. The operating system from the outside</td><td>5–10. Booting, file systems, system calls, the shell and scripting</td><td>Belfield</td></tr>
+    <tr><td>III. Doing many things at once</td><td>11–16. Multitasking, interrupts, processes, pipes, scheduling</td><td>Blackrock</td></tr>
+    <tr><td>IV. Sharing the machine safely</td><td>17–22. Synchronisation, semaphores, virtual memory, multiprocessors, protection</td><td>Glendalough</td></tr>
+  </table>
+  </div>
+
+  <h2>Set up your computer</h2>
+  <p>Everything runs on your own computer with free software: on a Mac in the Terminal, on Ubuntu or
+  Debian Linux, and on Windows in Ubuntu under WSL 2. A script that comes with logOS installs the
+  RISC-V compiler and Java, fetches the simulator, builds logOS and checks that it boots.</p>
+  <ol>
+    <li><strong>macOS:</strong> install <a href="https://brew.sh">Homebrew</a>.
+        <strong>Windows:</strong> run <code>wsl --install -d Ubuntu-24.04</code> in PowerShell, restart,
+        and open Ubuntu from the Start menu.</li>
+    <li>Fetch logOS and run its set-up script:
+<pre><code>git clone -b 2.x-blackrock https://github.com/pavelgladyshev/logos.git
+cd logos
+./setup.sh</code></pre></li>
+    <li>When the script says <code>Ready</code>, type <code>make run</code> to start logOS in the
+        terminal (Ctrl-C stops it), or <code>make gui</code> to watch the computer in the simulator's window.</li>
+  </ol>
+
+  <h2>The code</h2>
+  <ul>
+    <li><a href="https://github.com/pavelgladyshev/logos">logOS</a>, the operating system, in three
+        branches: <code>1.x-belfield</code>, <code>2.x-blackrock</code> and <code>3.x-glendalough</code>.</li>
+    <li><a href="https://github.com/pavelgladyshev/bare-metal-os-supplement">The supplement</a>:
+        the smaller example programs and circuits (RARS programs, the Pong game in four versions,
+        and the multiprocessor examples for QEMU).</li>
+    <li><a href="https://github.com/pavelgladyshev/logisim-evolution-ucd">Logisim Evolution UCD</a>,
+        the simulator of the computer, and the
+        <a href="https://github.com/pavelgladyshev/COMP20180-rars">modified RARS</a> used for the
+        first assembly programs.</li>
+  </ul>
+
+  <footer>
+    <p>Text and sample chapters © Pavel Gladyshev, all rights reserved. Example programs and circuits
+    are licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
+  </footer>
+</main>
+</body>
+</html>
