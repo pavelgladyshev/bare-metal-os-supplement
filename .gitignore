@@ -1,0 +1,11 @@
+*.o
+*.map
+*.sym
+*.bin
+*.bin.txt
+*-rom
+*-rom.txt
+*.jar
+.vscode/
+.DS_Store
+block_storage.bin

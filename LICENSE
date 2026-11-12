@@ -1,0 +1,18 @@
+Supplement to "Operating Systems from the Bare Metal Up" - Copyright (c) 2022-2026 Pavel Gladyshev
+
+This repository is licensed in parts:
+
+* The example programs, their build files, the circuits and the documentation are
+  licensed under the Creative Commons Attribution 4.0 International licence
+  (CC BY 4.0). The full text is in LICENSE-CC-BY-4.0.txt and at
+  https://creativecommons.org/licenses/by/4.0/
+
+* The scripts that set up and check a computer (the top-level Makefile and
+  anything in tools/) are licensed under the MIT licence; see LICENSE-MIT.txt.
+
+* spinlock.c, spinlock.h and printf.c in the smp-boxes and smp-boxes-synchronised
+  folders are adapted from xv6-riscv and remain under its MIT licence; see
+  LICENSE-xv6.txt.
+
+* The sample chapters of the book (in docs/, when present) are NOT covered by the
+  licences above: copyright (c) Pavel Gladyshev, all rights reserved.
