@@ -23,7 +23,7 @@ ifndef RISCV_TOOL_PREFIX
 endif
 
 LOGISIM_PROJECTS = simple-asm simple-c pong/blocking pong/fsm pong/coroutines pong_interrupt
-QEMU_PROJECTS    = smp-simple-assembly smp-boxes smp-boxes-synchronised
+QEMU_PROJECTS    = smp-simple-assembly smp-boxes smp-boxes-synchronised smp-counter-litmus
 PROJECTS         = $(LOGISIM_PROJECTS) $(QEMU_PROJECTS)
 
 .PHONY: all clean check $(PROJECTS)

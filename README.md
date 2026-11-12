@@ -14,6 +14,7 @@ is in [its own repository](https://github.com/pavelgladyshev/logos).
 | `pong_interrupt/` | Logisim | 12 |
 | `rars/multitasking.asm` | RARS | 13 |
 | `smp-simple-assembly/`, `smp-boxes/`, `smp-boxes-synchronised/` | QEMU | 21 |
+| `smp-counter-litmus/` (`counter`, `litmus`: two harts, RV32IMA) | QEMU | 21 |
 
 ## Setting up
 
@@ -36,7 +37,8 @@ Ubuntu's compiler; on a Mac type `make RISCV_TOOL_PREFIX=riscv64-elf-` there.
 - **Logisim projects** make a ROM image (`*.txt`): open the project's circuit in Logisim
   Evolution UCD, right-click the ROM, choose *Load Image...* and select it.
 - **QEMU projects**: `make qemu` runs the program on QEMU's `virt` machine with three harts
-  (`make qemu CPUS=8` for eight). Ctrl-A, then x, leaves QEMU.
+  (`make qemu CPUS=8` for eight). Ctrl-A, then x, leaves QEMU. In `smp-counter-litmus/` the targets are
+  `make run-counter` and `make run-litmus`.
 - **RARS programs**: open the `.asm` file in RARS, assemble and run.
 
 ## Licence

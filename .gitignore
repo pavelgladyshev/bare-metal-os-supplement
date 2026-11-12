@@ -9,3 +9,5 @@
 .vscode/
 .DS_Store
 block_storage.bin
+smp-counter-litmus/counter
+smp-counter-litmus/litmus
