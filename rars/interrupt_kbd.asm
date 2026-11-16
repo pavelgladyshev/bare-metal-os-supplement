@@ -5,7 +5,7 @@ main:
 	# enabling interrupt processing
 
 	la t0,isr
-	csrw t0,mtvec    # writing address of ISR to utvec
+	csrw t0,mtvec    # writing address of ISR to mtvec
 	
 	li t0,0x111
 	csrw t0,mie      # enabling IRQs from all sources
@@ -39,9 +39,9 @@ isr:
 	
 	csrw t0,mscratch # put value of t0 temporaroly into mscratch
 	la t0,frame	 # load address of the frame into t0
-	sw t1,4(t0)	 # save double-word value of t1 into 4(frame)
-	sw s0,8(t0)      # save double-word value of s0 into 8(frame)
-	sw s1,12(t0)     # save double-word value of s1 into 12(frame)
+	sw t1,4(t0)	 # save value of t1 into 4(frame)
+	sw s0,8(t0)      # save value of s0 into 8(frame)
+	sw s1,12(t0)     # save value of s1 into 12(frame)
 	csrr t1,mscratch # get the original value of t0 from mscratch
 	sw t1,0(t0)      # and save it to 0(frame)
 	csrr t1,mepc     # get the original value of mepc
@@ -56,7 +56,7 @@ isr:
 			
 	la t0,frame	 # load address of the frame into t0
 	lw t1,16(t0)     # load original value of mepc from 16(frame)
-	csrw t1,mepc     # and write it into uepc
+	csrw t1,mepc     # and write it into mepc
 	lw t1,0(t0)      # load original value of t0 from 0(frame)
 	csrw t1,mscratch # and write it temporarily into mscratch
 	lw s1,12(t0)     # load original value of s1 from 12(frame)

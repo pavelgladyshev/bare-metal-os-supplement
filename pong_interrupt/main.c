@@ -38,7 +38,7 @@ void init_interrupts()
    // enable interrupts from external source by setting bit 11 in CPU's mie register
    set_mie(0x800);
 
-   // enable handling of interrupts in CPU by setting bit 8 in CPU's mstatus register
+   // enable handling of interrupts in CPU by setting bit 3 in CPU's mstatus register
    enable_interrupts();
 }
 

@@ -28,7 +28,7 @@ void main()
     acquire(&boxes_lock);
     while(boxes[i]==0) i++;           // 1. scan through boxes array until first non-zero element
     for (int x=boxes[i]; x>0; x--);   // 2. run empty loop for boxes[i] iterations (imitating doing some work)
-    boxes[i]=0;                       // 3. set boxes[0]=0 signalling that it has been "processed"
+    boxes[i]=0;                       // 3. set boxes[i]=0 signalling that it has been "processed"
     release(&boxes_lock); 
     // each CPU hart prints the state of boxes[] array after processing
     printf("boxes: %d, %d, %d, %d\n",boxes[0],boxes[1],boxes[2],boxes[3]);

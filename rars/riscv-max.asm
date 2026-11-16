@@ -6,7 +6,7 @@
 		li t0,10		# load 10 into t0
 		li t1,5			# load 5 into t1
 		
-		blt t1,t0,l1	# Brach if t1 is Less Than t0, to label l1
+		blt t1,t0,l1	# Branch if t1 is Less Than t0, to label l1
 						# otherwise continue to the next instruction
 		mv t4,t1		# t1 is NOT less than t0, therefore t1 is the max, copy it to t4
 		j l2			# Jump to label l2 to print the result
@@ -19,4 +19,4 @@ l2:		li a7,1			# load syscall number 1 (PrintInt) to a7
 		ecall			# do syscall
 		
 		li a7,10		# load syscall number 10 (Exit) to a7
-		ecall			# terminate the prorgam
+		ecall			# terminate the program

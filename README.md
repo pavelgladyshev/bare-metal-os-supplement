@@ -15,6 +15,8 @@ is in [its own repository](https://github.com/pavelgladyshev/logos).
 | `rars/multitasking.asm` | RARS | 13 |
 | `smp-simple-assembly/`, `smp-boxes/`, `smp-boxes-synchronised/` | QEMU | 21 |
 | `smp-counter-litmus/` (`counter`, `litmus`: two harts, RV32IMA) | QEMU | 21 |
+| `logos-programs/` (the book's illustration programs for logOS; see its `README.md`) | logOS in Logisim | 14, 15, 17, 18, 20 |
+| `tools/run_logisim.py` (types commands from a file into logOS; see below) | Logisim | Appendix D |
 
 ## Setting up
 
@@ -40,6 +42,14 @@ Ubuntu's compiler; on a Mac type `make RISCV_TOOL_PREFIX=riscv64-elf-` there.
   (`make qemu CPUS=8` for eight). Ctrl-A, then x, leaves QEMU. In `smp-counter-litmus/` the targets are
   `make run-counter` and `make run-litmus`.
 - **RARS programs**: open the `.asm` file in RARS, assemble and run.
+- **Programs for logOS** (`logos-programs/`): copy one into a logOS tree and add its name to
+  `USER_PROGS` in the tree's Makefile, as `logos-programs/README.md` explains.
+- **`tools/run_logisim.py`** boots a logOS tree in Logisim without its window, types the commands
+  of a file into the logOS shell and prints what comes back:
+  `python3 tools/run_logisim.py <tree> <scratch folder> <command file>`. It needs the `pexpect`
+  library (`pip install pexpect`) and looks for the Logisim jar in the tree, where logOS's
+  `setup.sh` puts it; `--jar` or the environment variable `LOGISIM_JAR` names another. The
+  comment at the top of the file has the details.
 
 ## Licence
 

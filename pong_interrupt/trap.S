@@ -134,7 +134,7 @@ trap_ret:
         lw t4, 132(a0)
         lw t5, 136(a0)
         lw t6, 140(a0)
-         //process input from inp_buff[]
+
 	# restore user a0, and save trap_frame pointer in mscratch
         csrrw a0, mscratch, a0
         

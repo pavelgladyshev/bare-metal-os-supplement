@@ -133,17 +133,23 @@ int readint()
 void reader_task()
 {
    int new_x, new_y;
-   new_x = readint();
-   new_y = readint();
-   if ((new_x >= VGA_WIDTH) || (new_y >= VGA_HEIGHT))
+
+   // forever: 1) read new X and Y coordinates from the keyboard
+   // 2) if they are within the screen, move the dot there
+   for (;;)
    {
-      printstr("New coords out of bounds!\n");
-   }
-   else
-   {
-      VGA_PLOT(x, y, 0x000000);           // erase the dot by making it black
-      VGA_PLOT(new_x, new_y, DOT_COLOUR); // paint it in new coordinates
-      x = new_x;
-      y = new_y;
+      new_x = readint();
+      new_y = readint();
+      if ((new_x >= VGA_WIDTH) || (new_y >= VGA_HEIGHT))
+      {
+         printstr("New coords out of bounds!\n");
+      }
+      else
+      {
+         VGA_PLOT(x, y, 0x000000);           // erase the dot by making it black
+         VGA_PLOT(new_x, new_y, DOT_COLOUR); // paint it in new coordinates
+         x = new_x;
+         y = new_y;
+      }
    }
 }
