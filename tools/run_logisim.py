@@ -24,7 +24,7 @@ if a command does not come back to the prompt in time, or if Logisim stops.
 
 The Logisim jar is, in this order: the --jar option; the environment variable LOGISIM_JAR; the
 file that "make -s print-LOGISIM_JAR" names in <tree> (logOS's setup.sh downloads it there);
-logisim-evolution-ucd-5.0.7-all.jar in <tree>.
+logisim-evolution-ucd-5.0.8-all.jar in <tree>.
 
 Needs Python 3, Java 21 or later, and the pexpect library (pip install pexpect, or
 sudo apt install python3-pexpect). It runs on Linux, macOS and Ubuntu on WSL.
@@ -39,7 +39,7 @@ import time
 
 import pexpect
 
-DEFAULT_JAR = "logisim-evolution-ucd-5.0.7-all.jar"
+DEFAULT_JAR = "logisim-evolution-ucd-5.0.8-all.jar"
 
 
 def find_jar(tree, option):
