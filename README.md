@@ -17,6 +17,7 @@ is in [its own repository](https://github.com/pavelgladyshev/logos).
 | `smp-counter-litmus/` (`counter`, `litmus`: two harts, RV32IMA) | QEMU | 21 |
 | `logos-programs/` (the book's illustration programs for logOS; see its `README.md`) | logOS in Logisim | 14, 15, 17, 18, 20 |
 | `tools/run_logisim.py` (types commands from a file into logOS; see below) | Logisim | Appendix D |
+| `sdcard-bridge/` (a Tang Nano 20K as a reader and writer for its microSD card; see its `README.md`) | Tang Nano 20K | Appendix E |
 
 ## Setting up
 
@@ -50,6 +51,10 @@ Ubuntu's compiler; on a Mac type `make RISCV_TOOL_PREFIX=riscv64-elf-` there.
   library (`pip install pexpect`) and looks for the Logisim jar in the tree, where logOS's
   `setup.sh` puts it; `--jar` or the environment variable `LOGISIM_JAR` names another. The
   comment at the top of the file has the details.
+- **`sdcard-bridge/`** is an FPGA bitstream that lets your computer read and write the microSD card in
+  a Tang Nano 20K over the board's USB serial port. logOS's fstool and logosfs take the serial port in
+  place of a disk image: `make fs-image DISK=/dev/ttyUSB1` puts a fresh logOS disk on the card, and
+  `fstool/logosfs /dev/ttyUSB1 mnt` mounts it. Its `README.md` has the details.
 
 ## Licence
 
