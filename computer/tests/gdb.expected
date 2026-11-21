@@ -1,0 +1,20 @@
+at reset:
+  pc = 0x0
+  priv = 0x3
+  mstatus = 0x1800
+  mip = 0x0
+  mie = 0x0
+  mcause = 0x0
+in the interrupt handler, before it reads the character:
+  mip = 0x800
+  mie = 0x800
+  mcause = 0x8000000b
+  mstatus = 0x1880
+  priv = 0x3
+  the pc is the handler's address: 0x1
+  mepc is in main: 0x1
+  x/xw 0xffff0004 (RCR)        0x00000003
+after the handler has read the character, and one more instruction:
+  mip = 0x0
+  x/xw 0xffff0004 (RCR)        0x00000002
+  a0 (the character)           0x61

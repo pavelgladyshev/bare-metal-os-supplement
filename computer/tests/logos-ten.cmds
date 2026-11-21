@@ -1,0 +1,11 @@
+fs_test
+pipe_test
+redir_test
+fd_test
+proc_test
+link_test
+shm_test
+sem_test
+script_test
+stress_test
+sh /etc/test.sh

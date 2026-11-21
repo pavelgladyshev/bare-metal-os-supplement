@@ -1,0 +1,37 @@
+after reset
+  lw  0xffff0010 = 00000000
+sb 0x06 at 0xffff0010 (the right digit shows 1)
+  lbu 0xffff0010 = 06
+  lbu 0xffff0011 = 00
+  lhu 0xffff0010 = 0006
+  lw  0xffff0010 = 00000006
+sb 0x5b at 0xffff0011 (the left digit shows 2)
+  lbu 0xffff0010 = 06
+  lbu 0xffff0011 = 5b
+  lhu 0xffff0010 = 5b06
+  lw  0xffff0010 = 00005b06
+sh 0x4f3f at 0xffff0010 (both digits: 3 and 0)
+  lbu 0xffff0010 = 3f
+  lbu 0xffff0011 = 4f
+  lhu 0xffff0010 = 4f3f
+  lw  0xffff0010 = 00004f3f
+sw 0xa5c3ff80 at 0xffff0010 (bytes 2 and 3 are not kept)
+  lbu 0xffff0010 = 80
+  lbu 0xffff0011 = ff
+  lbu 0xffff0012 = 00
+  lbu 0xffff0013 = 00
+  lhu 0xffff0010 = ff80
+  lhu 0xffff0012 = 0000
+  lw  0xffff0010 = 0000ff80
+  lb  0xffff0011 = ffffffff
+  lh  0xffff0010 = ffffff80
+sb 0x77 at 0xffff0012 and 0xffff0013, sh 0x7777 at 0xffff0012 (no digit there)
+  lw  0xffff0010 = 0000ff80
+sb 0x6d at 0xffff0010 (the left digit keeps its value)
+  lw  0xffff0010 = 0000ff6d
+sw 0 at 0x00100010 and 0xffff0014, sb 0 at 0xffff000f (other addresses)
+  lw  0xffff0010 = 0000ff6d
+  lw  0xffff0014 = 00000000
+sh 0x7d07 at 0xffff0010 (the digits show 6 and 7)
+  lw  0xffff0010 = 00007d07
+done

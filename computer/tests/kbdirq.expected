@@ -1,0 +1,32 @@
+part 0: the interrupt enable bit, with interrupts off in the CPU
+  after reset                 RCR = 00000000
+  sb 0x02 at 0xffff0004       RCR = 00000002
+                              lbu = 02
+  sb 0x00 at 0xffff0004       RCR = 00000000
+  sh 0x0002 at 0xffff0004     RCR = 00000002
+  sw 0xfffffffd at 0xffff0004 RCR = 00000000
+  sw 0xffffffff at 0xffff0004 RCR = 00000002
+  sw 0, then sb 0xff at 0xffff0005 to 0xffff0007 and sh at 0xffff0006: RCR = 00000000
+  mip = 00000000
+part 1: interrupt enable 0, interrupts on in the CPU
+  RCR = 00000000
+  a character is waiting: RCR = 00000001
+  mip = 00000000
+  interrupts = 00000000
+part 2: interrupt enable 1
+  the handler: mcause = 8000000b
+  typed: abcd.
+  RCR = 00000000
+  mip in the handler, before it read the character = 00000800
+  mip in the handler, after = 00000000
+  interrupts = 00000005
+  the digits minus the count = 00000000
+  the main program counted meanwhile (1 = yes): 1
+part 3: interrupt enable 0
+  a character is waiting: RCR = 00000001
+  mip = 00000000
+  interrupts = 00000005
+  the character, read by the main program = 7a
+  RCR = 00000000
+  the data register, read again with no character waiting = 00000000
+done

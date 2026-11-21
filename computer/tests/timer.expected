@@ -1,0 +1,18 @@
+after reset
+  mtimecmp, high word = ffffffff
+  mtimecmp, low word  = ffffffff
+  mtime, high word    = 00000000
+  mtime, low word, is below 100000 (1 = yes): 1
+  mtime counts on (1 = yes): 1
+  mip = 00000000
+  mie = 00000000
+  mstatus = 00001800
+  the word of the RAM at 0x00180000 = 00000000
+the timer interrupt
+  mtimecmp, high word = 00000000
+  mip before the time has come = 00000000
+  the handler: mcause = 80000007
+  the handler: mip = 00000080
+  mip after the handler = 00000000
+  interrupts = 00000001
+done

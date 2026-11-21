@@ -1,0 +1,5 @@
+the first words of the ROM: 0x00000000 0x00000000 0x00000000 0x00000000
+at reset:        pc = 0x0  mcause = 0x0
+after 1 step:    pc = 0x0  mcause = 0x2  mepc = 0x0  mtval = 0x0  mtvec = 0x0
+after 100 steps: pc = 0x0  mcause = 0x2  mepc = 0x0
+the digits and the keyboard's register: 0x00000000 0x00000000
