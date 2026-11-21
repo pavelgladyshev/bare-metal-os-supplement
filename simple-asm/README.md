@@ -1,16 +1,17 @@
-# Running logisim in command line mode (without GUI)
+# simple-asm: a first program in assembly language
 
-Logisim runs much faster in command line mode, because it does not waste time
-on redrawing the GUI several times per second. This may be important if your
-computer is slow. 
+`simple.s` writes `Hi` to the computer's terminal, a character at a time, by storing each
+character into the terminal's register at `0xFFFF000C`. Then it stops in a loop.
 
-To start logisim in command line mode, open Terminal and cd into *this folder*, 
-then from Terminal type something like:
+```bash
+make            # build the program: the ELF file simple-asm, the listing simple-asm.asm, the ROM image simple-asm-rom.txt
+make run        # run it in the terminal (Ctrl-C stops it)
+make gui        # run it in Logisim's window; start the clock with Simulate, Auto-Tick Enabled (Ctrl-K)
+make debug      # as make run, but the CPU waits for a debugger; then, in a second terminal:
+make gdb        # gdb, connected to the CPU, with the program's symbols
+make list       # the program's instructions and their addresses, beside the source
+```
 
-     java -jar logisim-evolution-ucd-5.0.9-all.jar computer.circ --tty raw
-
-With --tty raw, ASCII display and keyboard in Logisim circuit are mapped to console.
-
-Note that *before* you run logisim without GUI you must first start logisim *with* GUI to
-load your compiled code into the ROM of computer.circ and *save* the modified circuit.
-
+The program runs in the ROM of a copy of the computer (`../computer/computer.circ`) that these
+commands make in the folder `build`. Running without the window is much faster, because Logisim
+does not redraw the circuit several times a second.

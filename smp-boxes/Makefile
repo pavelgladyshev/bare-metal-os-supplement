@@ -31,7 +31,7 @@ OBJECT_FILES = crt0.o main.o printf.o spinlock.o
 # what will be built, if make command is run without parameters
 .DEFAULT_GOAL = $(EXECUTABLE)
 
-# Tool name prfix
+# Tool name prefix
 RISCV_TOOL_PREFIX=riscv64-unknown-elf-
 
 # RISC-V instruction set architecture to use when compiling the program (RV32IM by default)
@@ -43,7 +43,7 @@ RISCV_ABI=lp64
 # Additional command line options for GCC
 CFLAGS=-DQEMU20180 -Wno-builtin-declaration-mismatch
 
-# Linker script file to use when producting the executable
+# Linker script file to use when producing the executable
 LINKER_SCRIPT_FILE=qemu.lds
 
 # QEMU executable to use
