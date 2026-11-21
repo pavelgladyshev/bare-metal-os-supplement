@@ -7,7 +7,7 @@ computer is slow.
 To start logisim in command line mode, open Terminal and cd into *this folder*, 
 then from Terminal type something like:
 
-     java -jar logisim-evolution-ucd-5.0.8-all.jar computer.circ --tty raw
+     java -jar logisim-evolution-ucd-5.0.9-all.jar computer.circ --tty raw
 
 With --tty raw, ASCII display and keyboard in Logisim circuit are mapped to console.
 
