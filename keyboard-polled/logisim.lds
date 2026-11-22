@@ -19,6 +19,6 @@ SECTIONS
 
   .bss : { *(.bss) *(.sbss) *(COMMON) } > ram
 
-  PROVIDE(__stack_init = ORIGIN(ram) + LENGTH(ram) - 4);
+  PROVIDE(__stack_init = ORIGIN(ram) + LENGTH(ram));
 }
 

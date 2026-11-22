@@ -11,7 +11,7 @@
 
 	.globl _start
 _start:                       # this is where CPU starts executing instructions after reset / power-on
-	la sp,__stack_init        # initialise sp (with the value that points to the last word of RAM)
+	la sp,__stack_init        # initialise sp (with the address just past the end of RAM)
 	li a0,0                   # populate optional main() parameters with dummy values (just in case)
 	li a1,0
 	li a2,0
