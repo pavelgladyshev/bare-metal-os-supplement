@@ -80,7 +80,10 @@ with open(args.cmdfile) as cf:
     cmds = [l.rstrip("\n") for l in cf if l.strip() and not l.startswith("#")]
 log = open(os.path.join(args.rundir, "session.log"), "w")
 t0 = time.time()
-p = pexpect.spawn("java", ["-Djava.awt.headless=true", "-jar", jar, "computer.circ", "--tty", "raw"],
+# The bootloader goes into the circuit's ROM as the simulator starts: the ROM of computer.circ is
+# empty from logOS 1.1, 2.2 and 3.1 on, and in earlier trees this is the image that was built
+p = pexpect.spawn("java", ["-Djava.awt.headless=true", "-jar", jar, "computer.circ", "--tty", "raw",
+                           "--load", "boot-rom.txt", "ROM_1"],
                   cwd=args.rundir, encoding="utf-8", codec_errors="replace", timeout=args.timeout)
 p.logfile_read = log
 PROMPT = re.compile(r"\$ $")
