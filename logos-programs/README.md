@@ -14,6 +14,7 @@ single file that uses only logOS's `user/libc.h`.
 | `semaphores/` | 19 | Blackrock | `count`, `abc`, `prodcons`, `deadlock` |
 | `virtual-memory/` | 21 | Glendalough (branch `3.x-glendalough`) | `where`, `pf`, `shmpt`, `straddle` |
 | `multiprocessors/` | 22 | Blackrock | `fence_demo`, `amo_demo`, `zero_demo`: one instruction each, to show what the simulated CPU does with it |
+| `cover/` | the cover | Blackrock | `digits`: `digits 42` shows 42 on the computer's two seven-segment digits, as on the book's cover. Look at them in Logisim's window (`make gui`) or on the FPGA board |
 
 The output printed in the book came from logOS Blackrock v2.2.0 and Glendalough v3.1.0 in Logisim
 Evolution UCD 5.0.10. The simulated computer is deterministic, so the same build gives the same
