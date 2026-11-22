@@ -7,11 +7,11 @@ single file that uses only logOS's `user/libc.h`.
 
 | Folder | Chapter | logOS version | Programs |
 | --- | --- | --- | --- |
-| `ch14/` | 14 | Blackrock (branch `2.x-blackrock`) | `fork1`, `fork2`, `zombie`, `rr`, `busy`, `orphan`, `nest`; the shell script `demo.sh` |
-| `ch15/` | 15 | Blackrock | `eofwait` |
-| `ch17/` | 17 | Blackrock | `race`, `race_flag`, `race_pipe`, `race_intr`; `racediag2`, the variant of `race` that measures a quantum |
-| `ch18/` | 18 | Blackrock | `count`, `abc`, `prodcons`, `deadlock` |
-| `ch20/` | 20 | Glendalough (branch `3.x-glendalough`) | `where`, `pf`, `shmpt`, `straddle` |
+| `processes/` | 14 | Blackrock (branch `2.x-blackrock`) | `fork1`, `fork2`, `zombie`, `rr`, `busy`, `orphan`, `nest`; the shell script `demo.sh` |
+| `pipes/` | 15 | Blackrock | `eofwait` |
+| `synchronisation/` | 17 | Blackrock | `race`, `race_flag`, `race_pipe`, `race_intr`; `racediag2`, the variant of `race` that measures a quantum |
+| `semaphores/` | 18 | Blackrock | `count`, `abc`, `prodcons`, `deadlock` |
+| `virtual-memory/` | 20 | Glendalough (branch `3.x-glendalough`) | `where`, `pf`, `shmpt`, `straddle` |
 
 The output printed in the book came from logOS Blackrock v2.1.2 and Glendalough v3.0.2 in Logisim
 Evolution UCD 5.0.7. The simulated computer is deterministic, so the same build gives the same
@@ -27,7 +27,7 @@ numbers; another version of logOS or of the compiler may give others.
 For example, for `count` of Chapter 18, in a Blackrock tree:
 
 ```bash
-cp ../bare-metal-os-supplement/logos-programs/ch18/count.c user/
+cp ../bare-metal-os-supplement/logos-programs/semaphores/count.c user/
 # in the Makefile, add count to the end of the list:   USER_PROGS = hello spawn_demo ... count
 make all
 make run
