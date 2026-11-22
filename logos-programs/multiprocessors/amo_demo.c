@@ -1,5 +1,5 @@
 /* amo_demo - executes amoswap.w.aq t0, t0, (a0), entered as a word because
- * -march=rv32im has no A extension (book illustration, Chapter 21) */
+ * -march=rv32im has no A extension (book illustration, Chapter 22) */
 #include "libc.h"
 
 static volatile int lock;

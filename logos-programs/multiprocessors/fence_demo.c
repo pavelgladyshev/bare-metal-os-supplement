@@ -1,5 +1,5 @@
 /* fence_demo - one fence instruction between two lines of output
- * (book illustration, Chapter 21) */
+ * (book illustration, Chapter 22) */
 #include "libc.h"
 
 int main(void)

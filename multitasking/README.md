@@ -1,6 +1,6 @@
 # Preemptive multitasking
 
-`multitasking.s` is the program of chapter 13, *Preemptive multitasking*: two processes, each an
+`multitasking.s` is the program of chapter 14, *Preemptive multitasking*: two processes, each an
 endless loop that writes the digits 0, 1, 2, 3 to its own seven-segment digit (`process_1` the
 right one, `0xFFFF0010`; `process_2` the left one, `0xFFFF0011`), and a timer interrupt that
 takes the CPU from one and gives it to the other. `main` fills in the two trap frames, asks the

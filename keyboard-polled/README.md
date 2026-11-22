@@ -1,6 +1,6 @@
 # A polled keyboard
 
-`polled_kbd.s` is the first program of chapter 12, *Computer architecture and interrupts*: one
+`polled_kbd.s` is the first program of chapter 13, *Computer architecture and interrupts*: one
 loop that does two jobs. On every trip it reads the keyboard's control register (`0xFFFF0004`);
 if a character is waiting, it reads it from the data register (`0xFFFF0008`) and sends it to the
 terminal (`0xFFFF000C`); then it writes the next of the digits 0, 1, 2, 3 to the right

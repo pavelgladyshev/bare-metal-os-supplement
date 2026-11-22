@@ -168,12 +168,14 @@ A program gets into the ROM in a copy of the file, never in `computer.circ` itse
   ROM labelled `ROM_1` (`make run`, `make gui`, `make debug`; `tools/mkcircuit.py` does it);
 - in text mode the simulator can also load an image itself:
   `java -jar logisim-evolution-ucd-5.0.10-all.jar computer.circ --tty raw --load image.txt ROM_1`;
-- logOS puts its bootloader there in the same way.
+- logOS puts its bootloader there in the same way: each of its trees has a copy of this
+  `computer.circ`, and `make run` and `make gui` there make `computer-rom.circ`, the copy with the
+  bootloader in the ROM.
 
-logOS needs nothing of the two additions to its own circuit: it never sets the keyboard's
-interrupt enable, so *Ext IRQ* stays 0 as before, and it does not use the digits. Belfield,
-Blackrock and Glendalough, each with its own bootloader in the ROM, give the same sessions on this
-circuit as on the circuits of their own trees (`tests/logos.sh`).
+logOS uses neither the digits nor the keyboard's interrupt: it never sets the keyboard's
+interrupt enable, so *Ext IRQ* stays 0. `tests/logos.sh` boots Belfield, Blackrock and
+Glendalough on this circuit and on the copy in their own trees, and checks that the sessions
+are the same.
 
 ## On the FPGA board
 
@@ -197,13 +199,14 @@ pins of the board's headers instead.
 
 Logisim 5.0.10's flow builds the circuit for the board's GW2AR-18 (`tests/fpga.sh`). The ROM's
 contents become logic, so the size depends on the program: with the ROM empty the circuit takes
-9060 of the 20736 LUTs, and with logOS Glendalough's bootloader in the ROM about 10,700, with 3068
-flip-flops either way. The two additions cost 128 LUTs and 18 flip-flops. The highest clock
-frequency that nextpnr reports is between 60 and 73 MHz, depending on the program, and the slowest
-path is inside the processor; the board's clock is 27 MHz.
+9060 of the 20736 LUTs, and with the bootloader of logOS v1.1.0, v2.2.0 or v3.1.0 in the ROM
+between 10,260 (Glendalough) and 10,647 (Blackrock), with 3068 flip-flops either way. The two
+digits and the keyboard's interrupt take 128 LUTs and 18 flip-flops of the total. With those
+bootloaders the highest clock frequency that nextpnr reports is between 49 and 65 MHz, depending
+on the program, and the slowest path is inside the processor; the board's clock is 27 MHz.
 
 Checked on a Tang Nano 20K on 21 November 2026: logOS Glendalough boots on this circuit and passes
-its ten test programs, with the session that it has on the circuit of its own tree, and
+its ten test programs, with the session that it has in Logisim, and
 `tests/kbdirq.S`, with its characters typed over the serial port, prints on the board what it
 prints in Logisim.
 

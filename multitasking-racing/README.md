@@ -1,6 +1,6 @@
 # A race: two processes, one terminal
 
-`multitasking_racing.s` is the first program of chapter 17, *Synchronisation*. It is
+`multitasking_racing.s` is the first program of chapter 18, *Synchronisation*. It is
 `../multitasking/multitasking.s` with two other processes: each prints its message on the
 terminal (`0xFFFF000C`), one character at a time, for ever. `process_1` prints
 `My funny bone has a fracture.` and `process_2` prints `It's not rocket surgery.` The timer

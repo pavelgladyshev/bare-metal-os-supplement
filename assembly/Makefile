@@ -7,7 +7,7 @@
 #
 # sudo apt install build-essential binutils-riscv64-unknown-elf gcc-riscv64-unknown-elf
 #
-# This folder has the small programs of chapter 2, one program per .s file. PROG names the
+# This folder has the small programs of chapter 3, one program per .s file. PROG names the
 # program that make builds and runs (example1 if it is not given):
 #
 #   make PROG=max gui   build max.s and run it in Logisim's window
@@ -27,7 +27,7 @@
 # --- Application-specific detail ----
 
 # the program to build and run: make PROG=max builds max.s (example1, memory, led, max, looping,
-# subroutine, sort-word-array, echo; and example, the program of chapter 3)
+# subroutine, sort-word-array, echo; and example, the program of chapter 4)
 PROG ?= example1
 
 # name of the executable file

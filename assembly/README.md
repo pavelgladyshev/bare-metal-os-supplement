@@ -1,6 +1,6 @@
-# The programs of chapter 2
+# The programs of chapter 3
 
-The small assembly-language programs of chapter 2, *Programming the RISC-V computer in assembly
+The small assembly-language programs of chapter 3, *Programming the RISC-V computer in assembly
 language*. They run on bare metal, on the computer of this supplement (`../computer/`). One
 Makefile builds and runs them all: `PROG` names the program (`example1` if it is not given).
 
@@ -23,7 +23,7 @@ make PROG=max list       # the instructions with their addresses and source line
 | `subroutine.s` | a subroutine called twice | `make PROG=subroutine run` | the terminal: `Hello` and `Goodbye` |
 | `sort-word-array.s` | selection sort of an array of words | `make PROG=sort-word-array debug`, `make PROG=sort-word-array gdb` | the array `A` in RAM, at `0x00100000`: 1, 2, 4, 10, 20 (`x/5dw &A`) |
 | `echo.s` | polling the keyboard | `make PROG=echo run`, then type | the terminal shows each key typed |
-| `example.s` | chapter 3: a variable in `.data`, which the linker script puts in the ROM | `make PROG=example debug`, `make PROG=example gdb` | register `s0`: 3; the variable `sum`, in the ROM at `0x18`: still 0, because the store is lost (`p $s0`, `x/dw &sum`) |
+| `example.s` | chapter 4: a variable in `.data`, which the linker script puts in the ROM | `make PROG=example debug`, `make PROG=example gdb` | register `s0`: 3; the variable `sum`, in the ROM at `0x18`: still 0, because the store is lost (`p $s0`, `x/dw &sum`) |
 
 In gdb, `break halt` and `continue` stop a program at its last instruction, the loop
 `halt: j halt`, where its result is ready.

@@ -20,7 +20,10 @@ options:
   --hz F        the circuit's simulation frequency, ticks a second (default 8192)
 
 The program must have the labels process_1, process_2 and trap_handler, in that order, with main
-before them; the handler must end with mret.
+before them; the handler must end with mret. The script knows two processes only. The program of
+Exercise 6 of Chapter 14, which adds a third, is not measured correctly: the third process's
+instructions are counted as those of process_2 or of the handler, wherever they lie. To measure
+it, Program.part and the tables for each process would have to learn a process_3.
 
 How the record is read. Each 16-byte entry holds what the CPU took at one rising edge (the word on
 its Data In, and the interrupt requests) and what it put on the bus after that edge (address, data

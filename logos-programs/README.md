@@ -7,16 +7,16 @@ single file that uses only logOS's `user/libc.h`.
 
 | Folder | Chapter | logOS version | Programs |
 | --- | --- | --- | --- |
-| `processes/` | 14 | Blackrock (branch `2.x-blackrock`) | `fork1`, `fork2`, `zombie`, `rr`, `busy`, `orphan`, `nest`; the shell script `demo.sh` |
-| `pipes/` | 15 | Blackrock | `pipe1`, `fill`, `eofwait` |
-| `scheduling/` | 16 | Blackrock | `rr_demo` |
-| `synchronisation/` | 17 | Blackrock | `race`, `race_flag`, `race_pipe`, `race_intr`; `racediag2`, the variant of `race` that measures a quantum |
-| `semaphores/` | 18 | Blackrock | `count`, `abc`, `prodcons`, `deadlock` |
-| `virtual-memory/` | 20 | Glendalough (branch `3.x-glendalough`) | `where`, `pf`, `shmpt`, `straddle` |
-| `multiprocessors/` | 21 | Blackrock | `fence_demo`, `amo_demo`, `zero_demo`: one instruction each, to show what the simulated CPU does with it |
+| `processes/` | 15 | Blackrock (branch `2.x-blackrock`) | `fork1`, `fork2`, `zombie`, `rr`, `busy`, `orphan`, `nest`; the shell script `demo.sh` |
+| `pipes/` | 16 | Blackrock | `pipe1`, `fill`, `eofwait` |
+| `scheduling/` | 17 | Blackrock | `rr_demo` |
+| `synchronisation/` | 18 | Blackrock | `race`, `race_flag`, `race_pipe`, `race_intr`; `racediag2`, the variant of `race` that measures a quantum |
+| `semaphores/` | 19 | Blackrock | `count`, `abc`, `prodcons`, `deadlock` |
+| `virtual-memory/` | 21 | Glendalough (branch `3.x-glendalough`) | `where`, `pf`, `shmpt`, `straddle` |
+| `multiprocessors/` | 22 | Blackrock | `fence_demo`, `amo_demo`, `zero_demo`: one instruction each, to show what the simulated CPU does with it |
 
-The output printed in the book came from logOS Blackrock v2.1.2 and Glendalough v3.0.2 in Logisim
-Evolution UCD 5.0.7. The simulated computer is deterministic, so the same build gives the same
+The output printed in the book came from logOS Blackrock v2.2.0 and Glendalough v3.1.0 in Logisim
+Evolution UCD 5.0.10. The simulated computer is deterministic, so the same build gives the same
 numbers; another version of logOS or of the compiler may give others.
 
 ## Adding a program to a logOS tree
@@ -26,7 +26,7 @@ numbers; another version of logOS or of the compiler may give others.
 3. Type `make all`. The program is built and put on the disk image as `/bin/<name>`, so its
    name is a command in the logOS shell.
 
-For example, for `count` of Chapter 18, in a Blackrock tree:
+For example, for `count` of Chapter 19, in a Blackrock tree:
 
 ```bash
 cp ../bare-metal-os-supplement/logos-programs/semaphores/count.c user/
@@ -35,18 +35,19 @@ make all
 make run
 ```
 
-`demo.sh` of Chapter 14 is a script for the logOS shell, not a C program. Copy it into the top
+`demo.sh` of Chapter 15 is a script for the logOS shell, not a C program. Copy it into the top
 folder of the tree, and in the `Makefile`, after the line that adds `/etc/test.sh` to the disk
 image, add the line (it starts with a tab)
 
 ```make
-	$(FSTOOL_BIN) add block_storage.bin /etc/demo.sh demo.sh
+	$(FSTOOL_BIN) add $(DISK) /etc/demo.sh demo.sh
 ```
 
 Then `make all`, and in logOS type `sh /etc/demo.sh`.
 
 Two of the programs need a word. `busy` waits for you to type a line. `orphan` leaves a child
-running when it ends, and when that child exits Blackrock restarts the shell: that is the bug
-the chapter shows, so run it last.
+running when it ends, and when that child exits Blackrock restarts the shell. Blackrock keeps
+this limitation on purpose, for an exercise of the book (K1 in logOS's `LIMITATIONS.md`), so run
+`orphan` last.
 
 These programs are licensed under CC BY 4.0, like the other examples; see `LICENSE`.

@@ -1,4 +1,4 @@
-/* pf - provoke one page fault, chosen by the argument (book illustration, Chapter 20) */
+/* pf - provoke one page fault, chosen by the argument (book illustration, Chapter 21) */
 #include "libc.h"
 
 int main(int argc, char *argv[])

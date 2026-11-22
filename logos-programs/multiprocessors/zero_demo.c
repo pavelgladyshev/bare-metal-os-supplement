@@ -1,5 +1,5 @@
 /* zero_demo - executes the all-zero word, an illegal instruction
- * (book illustration, Chapter 21) */
+ * (book illustration, Chapter 22) */
 #include "libc.h"
 
 int main(void)

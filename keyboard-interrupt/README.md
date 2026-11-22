@@ -1,6 +1,6 @@
 # An interrupt-driven keyboard
 
-`interrupt_kbd.s` is the second program of chapter 12, *Computer architecture and interrupts*:
+`interrupt_kbd.s` is the second program of chapter 13, *Computer architecture and interrupts*:
 the two jobs of `../keyboard-polled`, with the keyboard served by an interrupt. `main` puts the
 address of `isr` into `mtvec`, enables the machine external interrupt (`mie` = `0x800`, bit 11)
 and interrupts as a whole (`mstatus` = 8, bit 3, MIE), and sets the interrupt enable of the

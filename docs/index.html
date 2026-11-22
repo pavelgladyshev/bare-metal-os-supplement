@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Operating Systems from the Bare Metal Up</title>
-<meta name="description" content="A book that teaches operating systems by building one, logOS, on a simulated RISC-V computer. Sample chapters, example code and set-up instructions.">
+<meta name="description" content="A book that teaches operating systems by building one, logOS, on a simulated RISC-V computer. Example code and set-up instructions.">
 <style>
   :root {
     --bg: #fbfaf6; --ink: #1c2530; --muted: #5a6573; --rule: #dcd6c8;
@@ -56,10 +56,6 @@
   system, logOS, grows through three versions, and every listing in the book is code you can
   build, run and change.</p>
 
-  <h2>Read a sample</h2>
-  <p>Two chapters of the draft: Chapter 1, the introduction to operating systems and to the book,
-  and Chapter 11, where a bouncing-dot game leads to coroutines and cooperative multitasking.</p>
-  <p><a class="button" href="sample-chapters.pdf">Sample chapters (PDF)</a></p>
   <p class="note">The book is in preparation and the text may change.</p>
 
   <h2>What is in the book</h2>
@@ -67,10 +63,29 @@
   <table>
     <tr><th>Part</th><th>Chapters</th><th>logOS version</th></tr>
     <tr><td>Introduction</td><td>1. What is an operating system?</td><td></td></tr>
-    <tr><td>I. The machine</td><td>2–4. RISC-V assembly, the toolchain, C on bare metal</td><td></td></tr>
-    <tr><td>II. The operating system from the outside</td><td>5–10. Booting, file systems, system calls, the shell and scripting</td><td>Belfield</td></tr>
-    <tr><td>III. Doing many things at once</td><td>11–16. Multitasking, interrupts, processes, pipes, scheduling</td><td>Blackrock</td></tr>
-    <tr><td>IV. Sharing the machine safely</td><td>17–22. Synchronisation, semaphores, virtual memory, multiprocessors, protection</td><td>Glendalough</td></tr>
+    <tr><td>I. The machine</td><td>2. First steps with the tools<br>
+        3. Programming the RISC-V computer in assembly language<br>
+        4. From source code to a running program<br>
+        5. C on bare metal</td><td></td></tr>
+    <tr><td>II. The operating system from the outside</td><td>6. General-purpose operating systems and booting<br>
+        7. File systems<br>
+        8. System calls and the Unix programming interface<br>
+        9. The Unix shell<br>
+        10. Shell scripting<br>
+        11. logOS Belfield: a minimal operating system with a shell</td><td>Belfield</td></tr>
+    <tr><td>III. Doing many things at once</td><td>12. Cooperative multitasking<br>
+        13. Computer architecture and interrupts<br>
+        14. Preemptive multitasking<br>
+        15. logOS Blackrock: processes and multitasking<br>
+        16. Pipes and interprocess communication<br>
+        17. Process scheduling</td><td>Blackrock</td></tr>
+    <tr><td>IV. Sharing the machine safely</td><td>18. Synchronisation<br>
+        19. Semaphores, deadlock and monitors<br>
+        20. Virtual memory<br>
+        21. logOS Glendalough: virtual memory in logOS<br>
+        22. Multiprocessors<br>
+        23. Protection and access control</td><td>Glendalough</td></tr>
+    <tr><td>Conclusion</td><td>24. Conclusion: where to go next</td><td></td></tr>
   </table>
   </div>
 
@@ -102,7 +117,7 @@ cd logos
   </ul>
 
   <footer>
-    <p>Text and sample chapters © Pavel Gladyshev, all rights reserved. Example programs and circuits
+    <p>Text © Pavel Gladyshev, all rights reserved. Example programs and circuits
     are licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
   </footer>
 </main>

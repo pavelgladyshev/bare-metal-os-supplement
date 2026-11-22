@@ -1,4 +1,4 @@
-/* shmpt - attach one shared-memory segment (book illustration, Chapter 20) */
+/* shmpt - attach one shared-memory segment (book illustration, Chapter 21) */
 #include "libc.h"
 
 int main(void)

@@ -1,5 +1,5 @@
 /* eofwait - a parent reads its child's output to end of file before it calls wait
- * (book illustration, Chapter 15) */
+ * (book illustration, Chapter 16) */
 #include "libc.h"
 
 int main(void)

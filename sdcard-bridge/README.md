@@ -27,8 +27,10 @@ fstool/fstool add /dev/ttyUSB1 /etc/notes.txt notes.txt
 fstool/logosfs /dev/ttyUSB1 mnt          # mount the card (make logosfs first)
 ```
 
-Then load the computer (`computer.circ` through Logisim's FPGA flow) back into the board, and logOS boots
-from the card.
+Then load the computer back into the board, and logOS boots from the card. The ROM of `computer.circ` is
+empty, so load the copy with the bootloader in its ROM: in the logOS tree, `make gui` makes
+`computer-rom.circ` and opens it in Logisim's window, and *FPGA → Synthesize & Download…* there puts it on
+the board (Appendix E of the book has the steps).
 
 `sdcard.py` copies whole images:
 

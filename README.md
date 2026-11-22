@@ -7,18 +7,18 @@ is in [its own repository](https://github.com/pavelgladyshev/logos).
 | Folder | Runs in | Chapter |
 | --- | --- | --- |
 | `computer/` (the simulated computer, `computer.circ`; its `README.md` is the reference: memory map, device registers, interrupts) | Logisim | Appendix B |
-| `template/` (the smallest program, with the Makefile that every Logisim project shares; a project of your own starts as a copy of it) | Logisim | |
-| `assembly/` (`example1.s`, `memory.s`, `led.s`, `echo.s`, `max.s`, `looping.s`, `subroutine.s`, `sort-word-array.s`; `example.s` of chapter 3) | Logisim | 2, 3 |
+| `template/` (the smallest program, with the Makefile that every Logisim project shares; a project of your own starts as a copy of it) | Logisim | 2 |
+| `assembly/` (`example1.s`, `memory.s`, `led.s`, `echo.s`, `max.s`, `looping.s`, `subroutine.s`, `sort-word-array.s`; `example.s` of chapter 4) | Logisim | 3, 4 |
 | `simple-asm/` | Logisim | 2 |
-| `simple-c/` | Logisim | 3, 4 |
-| `pong/blocking/`, `pong/fsm/`, `pong/coroutines/` | Logisim | 3, 4, 11 |
-| `keyboard-polled/`, `keyboard-interrupt/` | Logisim | 12 |
-| `pong_interrupt/` | Logisim | 12 |
-| `multitasking/` | Logisim | 13 |
-| `multitasking-racing/`, `multitasking-synchronised/` | Logisim | 17 |
-| `smp-simple-assembly/`, `smp-boxes/`, `smp-boxes-synchronised/` | QEMU | 21 |
-| `smp-counter-litmus/` (`counter`, `litmus`: two harts, RV32IMA) | QEMU | 21 |
-| `logos-programs/` (the book's illustration programs for logOS; see its `README.md`) | logOS in Logisim | 14 to 18, 20, 21 |
+| `simple-c/` | Logisim | 4, 5 |
+| `pong/blocking/`, `pong/fsm/`, `pong/coroutines/` | Logisim | 4, 5, 12 |
+| `keyboard-polled/`, `keyboard-interrupt/` | Logisim | 13 |
+| `pong_interrupt/` | Logisim | 13 |
+| `multitasking/` | Logisim | 14 |
+| `multitasking-racing/`, `multitasking-synchronised/` | Logisim | 18 |
+| `smp-simple-assembly/`, `smp-boxes/`, `smp-boxes-synchronised/` | QEMU | 22 |
+| `smp-counter-litmus/` (`counter`, `litmus`: two harts, RV32IMA) | QEMU | 22 |
+| `logos-programs/` (the book's illustration programs for logOS; see its `README.md`) | logOS in Logisim | 15 to 19, 21, 22 |
 | `tools/run_logisim.py` (types commands from a file into logOS; see below) | Logisim | Appendix D |
 | `sdcard-bridge/` (a Tang Nano 20K as a reader and writer for its microSD card; see its `README.md`) | Tang Nano 20K | Appendix E |
 
@@ -56,7 +56,8 @@ Ubuntu's compiler; on a Mac type `make RISCV_TOOL_PREFIX=riscv64-elf-` there.
   folder (`tools/mkcircuit.py` does it): nothing is loaded by hand, and the circuit itself never
   changes. `make gui-debug` is `make debug` in the window. In the four Pong projects use it, with
   the clock started, before `make gdb`: with Logisim-evolution UCD 5.0.9 to 5.0.11, `make debug`
-  there loses gdb's connection after about a second. All the projects run on the one
+  there loses gdb's connection after about a second. Release 5.0.12 has the fix, but the projects
+  still fetch 5.0.10, the release that the book describes. All the projects run on the one
   computer, `computer/computer.circ`, except the Pong games, whose circuits have a graphical
   display and less memory (`pong/pong.circ`, `pong_interrupt/pong_interrupt.circ`). In `assembly/`
   the variable `PROG` names the program: `make PROG=max gui`.

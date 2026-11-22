@@ -1,6 +1,6 @@
 # The race cured: disabling interrupts
 
-`multitasking_racing_synchronised.s` is the second program of chapter 17, *Synchronisation*. It
+`multitasking_racing_synchronised.s` is the second program of chapter 18, *Synchronisation*. It
 is `../multitasking-racing/multitasking_racing.s` with two instructions more in each process:
 `csrci mstatus,8` before the loop that prints a message, which clears MIE (bit 3 of `mstatus`)
 and so disables interrupts, and `csrsi mstatus,8` after it, which enables them again. The

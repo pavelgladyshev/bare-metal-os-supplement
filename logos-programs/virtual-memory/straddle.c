@@ -1,4 +1,4 @@
-/* straddle - a read() buffer with two valid ends and an unmapped middle (book illustration, Chapter 20) */
+/* straddle - a read() buffer with two valid ends and an unmapped middle (book illustration, Chapter 21) */
 #include "libc.h"
 
 int main(void)

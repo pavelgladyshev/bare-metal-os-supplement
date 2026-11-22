@@ -1,4 +1,4 @@
-/* where - where do main, a global and a local live? (book illustration, Chapter 20) */
+/* where - where do main, a global and a local live? (book illustration, Chapter 21) */
 #include "libc.h"
 
 int counter = 1;
