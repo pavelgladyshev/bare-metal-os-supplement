@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
         void (*volatile f)(void) = (void (*)(void))0;
         f();
     } else if (strcmp(argv[1], "past") == 0) {
-        volatile char *p = (char *)0x00408000;
+        volatile char *p = (char *)0x00410000;
         *p = 0;
     } else if (strcmp(argv[1], "code") == 0) {
         volatile unsigned int *p = (unsigned int *)main;

@@ -19,8 +19,8 @@ int main(void)
     }
     close(p[0]);
     fd = open("/etc/hello.txt", O_RDONLY);
-    n = read(fd, (void *)0x00407FF8, 0xF800C);
-    printf("parent: read(fd, 0x407ff8, 0xf800c) returned %d\n", n);
+    n = read(fd, (void *)0x0040FFF8, 0xF000C);
+    printf("parent: read(fd, 0x40fff8, 0xf000c) returned %d\n", n);
     close(fd);
     write(p[1], "x", 1);
     close(p[1]);
