@@ -27,7 +27,7 @@
 # --- Application-specific detail ----
 
 # the program to build and run: make PROG=max builds max.s (example1, memory, led, max, looping,
-# subroutine, sort-word-array, echo)
+# subroutine, sort-word-array, echo; and example, the program of chapter 3)
 PROG ?= example1
 
 # name of the executable file

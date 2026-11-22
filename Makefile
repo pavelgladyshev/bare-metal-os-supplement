@@ -26,7 +26,7 @@ endif
 LOGISIM_PROJECTS = template simple-asm simple-c pong/blocking pong/fsm pong/coroutines pong_interrupt \
                    keyboard-polled keyboard-interrupt multitasking multitasking-racing multitasking-synchronised
 # assembly/ holds several programs with one Makefile: PROG names the program
-ASSEMBLY_PROGRAMS = example1 memory led echo max looping subroutine sort-word-array
+ASSEMBLY_PROGRAMS = example1 memory led echo max looping subroutine sort-word-array example
 QEMU_PROJECTS    = smp-simple-assembly smp-boxes smp-boxes-synchronised smp-counter-litmus
 PROJECTS         = $(LOGISIM_PROJECTS) $(QEMU_PROJECTS)
 

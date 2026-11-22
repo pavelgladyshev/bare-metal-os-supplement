@@ -9,9 +9,11 @@ single file that uses only logOS's `user/libc.h`.
 | --- | --- | --- | --- |
 | `processes/` | 14 | Blackrock (branch `2.x-blackrock`) | `fork1`, `fork2`, `zombie`, `rr`, `busy`, `orphan`, `nest`; the shell script `demo.sh` |
 | `pipes/` | 15 | Blackrock | `pipe1`, `fill`, `eofwait` |
+| `scheduling/` | 16 | Blackrock | `rr_demo` |
 | `synchronisation/` | 17 | Blackrock | `race`, `race_flag`, `race_pipe`, `race_intr`; `racediag2`, the variant of `race` that measures a quantum |
 | `semaphores/` | 18 | Blackrock | `count`, `abc`, `prodcons`, `deadlock` |
 | `virtual-memory/` | 20 | Glendalough (branch `3.x-glendalough`) | `where`, `pf`, `shmpt`, `straddle` |
+| `multiprocessors/` | 21 | Blackrock | `fence_demo`, `amo_demo`, `zero_demo`: one instruction each, to show what the simulated CPU does with it |
 
 The output printed in the book came from logOS Blackrock v2.1.2 and Glendalough v3.0.2 in Logisim
 Evolution UCD 5.0.7. The simulated computer is deterministic, so the same build gives the same

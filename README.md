@@ -8,7 +8,7 @@ is in [its own repository](https://github.com/pavelgladyshev/logos).
 | --- | --- | --- |
 | `computer/` (the simulated computer, `computer.circ`; its `README.md` is the reference: memory map, device registers, interrupts) | Logisim | Appendix B |
 | `template/` (the smallest program, with the Makefile that every Logisim project shares; a project of your own starts as a copy of it) | Logisim | |
-| `assembly/` (`example1.s`, `memory.s`, `led.s`, `echo.s`, `max.s`, `looping.s`, `subroutine.s`, `sort-word-array.s`) | Logisim | 2 |
+| `assembly/` (`example1.s`, `memory.s`, `led.s`, `echo.s`, `max.s`, `looping.s`, `subroutine.s`, `sort-word-array.s`; `example.s` of chapter 3) | Logisim | 2, 3 |
 | `simple-asm/` | Logisim | 2 |
 | `simple-c/` | Logisim | 3, 4 |
 | `pong/blocking/`, `pong/fsm/`, `pong/coroutines/` | Logisim | 3, 4, 11 |
@@ -18,7 +18,7 @@ is in [its own repository](https://github.com/pavelgladyshev/logos).
 | `multitasking-racing/`, `multitasking-synchronised/` | Logisim | 17 |
 | `smp-simple-assembly/`, `smp-boxes/`, `smp-boxes-synchronised/` | QEMU | 21 |
 | `smp-counter-litmus/` (`counter`, `litmus`: two harts, RV32IMA) | QEMU | 21 |
-| `logos-programs/` (the book's illustration programs for logOS; see its `README.md`) | logOS in Logisim | 14, 15, 17, 18, 20 |
+| `logos-programs/` (the book's illustration programs for logOS; see its `README.md`) | logOS in Logisim | 14 to 18, 20, 21 |
 | `tools/run_logisim.py` (types commands from a file into logOS; see below) | Logisim | Appendix D |
 | `sdcard-bridge/` (a Tang Nano 20K as a reader and writer for its microSD card; see its `README.md`) | Tang Nano 20K | Appendix E |
 

@@ -4,7 +4,7 @@
 # GDB server on, stops it with gdb at its final loop (halt) and checks the registers and memory
 # that hold its result. One PASS or FAIL line per program; the exit status is 1 if any failed.
 #
-#   ./test.sh [program ...]      (default: all eight)
+#   ./test.sh [program ...]      (default: all nine)
 #
 # Environment: LOGISIM_JAR (default: the jar in ../../ref, beside the worktree, if it is there,
 # otherwise the one in the top folder of the supplement; the test never downloads one),
@@ -28,7 +28,7 @@ LOGS=${LOGS:-$(mktemp -d)}
 mkdir -p "$LOGS"
 unset DISPLAY
 
-ALL="example1 memory led max looping subroutine sort-word-array echo"
+ALL="example1 memory led max looping subroutine sort-word-array echo example"
 PROGRAMS=${*:-$ALL}
 
 # What each program must print in text mode (a Python regular expression; empty: nothing to check)
@@ -39,6 +39,7 @@ declare -A PRINTS=(
 )
 declare -A GDB=(
   [example1]='printf "RESULT x23=%d x24=%d\n", $x23, $x24'
+  [example]='printf "RESULT s0=%d sum=%d sum-at=0x%x\n", $s0, *(int *)&sum, (int)&sum'
   [memory]='printf "RESULT A=%d B=%d\n", *(int *)&A, *(int *)&B'
   [led]='printf "RESULT right digit=0x%02x left digit=0x%02x\n", *(unsigned char *)0xffff0010, *(unsigned char *)0xffff0011'
   [max]='printf "RESULT t4=%d\n", $t4'
@@ -48,6 +49,7 @@ declare -A GDB=(
 )
 declare -A EXPECT=(
   [example1]='RESULT x23=32 x24=192'
+  [example]='RESULT s0=3 sum=0 sum-at=0x18'
   [memory]='RESULT A=1 B=6'
   [led]='RESULT right digit=0x06 left digit=0x00'
   [max]='RESULT t4=10'
