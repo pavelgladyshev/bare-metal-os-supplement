@@ -82,7 +82,7 @@ LINKER_SCRIPT_FILE=logisim.lds
 	
 # rule and command to process .s assembly files using GNU Assembler (.s files must use pure assembly language syntax)
 %.o : %.s
-	${RISCV_TOOL_PREFIX}as -march=$(RISCV_ISA) -mabi=$(RISCV_ABI) -g -c $< -o $@
+	${RISCV_TOOL_PREFIX}as -march=$(RISCV_ISA) -mabi=$(RISCV_ABI) -g $< -o $@
 	
 # rule that says that all object files need to be recompiled if any of the header files change
 $(OBJECT_FILES) : $(HEADER_FILES)
