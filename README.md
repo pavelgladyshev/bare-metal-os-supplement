@@ -54,7 +54,9 @@ Ubuntu's compiler; on a Mac type `make RISCV_TOOL_PREFIX=riscv64-elf-` there.
 
   Each of these puts the program into the ROM of a copy of the circuit, in the project's `build`
   folder (`tools/mkcircuit.py` does it): nothing is loaded by hand, and the circuit itself never
-  changes. `make gui-debug` is `make debug` in the window. All the projects run on the one
+  changes. `make gui-debug` is `make debug` in the window. In the four Pong projects use it, with
+  the clock started, before `make gdb`: with Logisim-evolution UCD 5.0.9 to 5.0.11, `make debug`
+  there loses gdb's connection after about a second. All the projects run on the one
   computer, `computer/computer.circ`, except the Pong games, whose circuits have a graphical
   display and less memory (`pong/pong.circ`, `pong_interrupt/pong_interrupt.circ`). In `assembly/`
   the variable `PROG` names the program: `make PROG=max gui`.
