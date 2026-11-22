@@ -22,6 +22,5 @@ What to look at in the window:
 - the panel of machine CSRs below the registers, where nothing ever changes: `mie` is 0,
   `mstatus` has MIE=0 and `mcause` stays 0 (the panel says "no trap yet").
 
-The program is `../rars/polled_kbd.asm` with the keyboard's registers at this computer's
-addresses, four bytes higher than in RARS, and with the digit codes in `.rodata`, which is in the
-ROM. This keyboard keeps up to 32 characters that the program has not read yet.
+The digit codes are in `.rodata`, which is in the ROM. The keyboard keeps up to 32 characters
+that the program has not read yet.

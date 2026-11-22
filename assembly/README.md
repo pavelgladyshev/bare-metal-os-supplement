@@ -1,9 +1,8 @@
 # The programs of chapter 2
 
 The small assembly-language programs of chapter 2, *Programming the RISC-V computer in assembly
-language*, ported from RARS (`../rars/`) to the computer of this supplement (`../computer/`), where
-they run on bare metal. One Makefile builds and runs them all: `PROG` names the program
-(`example1` if it is not given).
+language*. They run on bare metal, on the computer of this supplement (`../computer/`). One
+Makefile builds and runs them all: `PROG` names the program (`example1` if it is not given).
 
 ```bash
 make PROG=max            # build max.s: the ELF file max, the listing max.asm, the ROM image max-rom.txt
@@ -28,17 +27,17 @@ make PROG=max list       # the instructions with their addresses and source line
 In gdb, `break halt` and `continue` stop a program at its last instruction, the loop
 `halt: j halt`, where its result is ready.
 
-## What differs from RARS
+## On bare metal
 
 - **The assembler.** The programs are built with the GNU assembler and linker (`.s` files and the
-  Makefile) instead of in RARS. The instructions are the same; the variables of `memory.s` and
-  `sort-word-array.s` are reserved in the section `.bss`, the one that the linker puts in the RAM.
+  Makefile). The variables of `memory.s` and `sort-word-array.s` are reserved in the section
+  `.bss`, the one that the linker puts in the RAM.
 - **No operating system.** There is nothing to answer an `ecall`, so the programs make no system
-  calls. A program that printed a character stores it into the terminal's register at
-  `0xFFFF000C` itself; a program that printed a number leaves it in a register or in RAM; and every
-  program that finishes ends in the loop `halt: j halt`. The keyboard's registers are four bytes
-  higher than in RARS: the control register (RCR) is at `0xFFFF0004` and the data register (RDR) at
-  `0xFFFF0008`. The terminal is always ready and has no control register.
+  calls. A program that prints a character stores it into the terminal's register at
+  `0xFFFF000C` itself; a program that works out a number leaves it in a register or in RAM; and
+  every program that finishes ends in the loop `halt: j halt`. The keyboard's control register
+  (RCR) is at `0xFFFF0004` and its data register (RDR) at `0xFFFF0008`. The terminal is always
+  ready and has no control register.
 - **ROM and RAM.** The program and its constants (`.text` and `.data`) are in the ROM, from address
   0, and `.bss` is in the RAM, from `0x00100000` (`logisim.lds` says so). The RAM has no
   starting values, so a program that changes its data puts the starting values there itself:

@@ -66,13 +66,12 @@ Logisim's `Keyboard`, which keeps the characters typed in a buffer of 32.
 
 A store to `0xFFFF0004` (`sw`, `sh` or `sb` at that address) sets the interrupt enable to bit 1 of
 the value stored, and changes nothing else. Stores to `0xFFFF0005`, `0xFFFF0006` and `0xFFFF0007`
-do nothing. This is the layout of the keyboard of RARS, four bytes higher: there too bit 0 of the
-receiver control register says that a character is waiting and bit 1 enables the interrupt.
+do nothing.
 
 ### Seven-segment digits
 
 Two 8-bit registers, each driving a `7-Segment Display`: the right digit at `0xFFFF0010` and the
-left digit at `0xFFFF0011`, as in the Digital Lab Sim of RARS. A bit that is 1 lights its segment:
+left digit at `0xFFFF0011`. A bit that is 1 lights its segment:
 
 ```
         a                bit 0   a     bit 4   e

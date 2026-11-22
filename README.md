@@ -21,7 +21,6 @@ is in [its own repository](https://github.com/pavelgladyshev/logos).
 | `logos-programs/` (the book's illustration programs for logOS; see its `README.md`) | logOS in Logisim | 14, 15, 17, 18, 20 |
 | `tools/run_logisim.py` (types commands from a file into logOS; see below) | Logisim | Appendix D |
 | `sdcard-bridge/` (a Tang Nano 20K as a reader and writer for its microSD card; see its `README.md`) | Tang Nano 20K | Appendix E |
-| `rars/` (the programs of chapters 2, 12 and 13 as they ran in the RARS simulator, before they moved to the computer; see its `README.md`) | RARS | |
 
 ## Setting up
 
