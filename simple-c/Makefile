@@ -190,7 +190,7 @@ compile-for-qemu: CFLAGS+=-DQEMU20180
 compile-for-qemu: LINKER_SCRIPT_FILE=qemu.lds
 compile-for-qemu: clean $(EXECUTABLE)
 
-# run compiled program in qemu, redirect MMIO Keybard and Console to use command line.
+# run compiled program in qemu, redirect MMIO Keyboard and Console to use command line.
 qemu: compile-for-qemu
 	$(QEMU_APP) -machine virt -kernel $(EXECUTABLE) -bios none -serial stdio
 

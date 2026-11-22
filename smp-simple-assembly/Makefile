@@ -84,12 +84,12 @@ $(EXECUTABLE) : $(OBJECT_FILES)
 clean: 
 	rm -f $(OBJECT_FILES) $(EXECUTABLE) $(EXECUTABLE).map $(EXECUTABLE).sym $(EXECUTABLE).asm 
 
-# run compiled program in qemu, redirect MMIO Keybard and Console to use command line.
+# run compiled program in qemu, redirect MMIO Keyboard and Console to use command line.
 qemu: $(EXECUTABLE)
-	@echo To exit QEMU running in -nographic mode, press \'Crtl-A\' and then \'x\' 
+	@echo To exit QEMU running in -nographic mode, press \'Ctrl-A\' and then \'x\' 
 	$(QEMU_APP) -machine virt -kernel $(EXECUTABLE) -smp $(CPUS) -bios none $(QEMU_DISPLAYS) 
 
 # start compiled program in qemu and freeze it until GDB connects at localhost:1234
 qemu-gdb: $(EXECUTABLE)
-	@echo To exit QEMU running in -nographic mode, press \'Crtl-A\' and then \'x\' 
+	@echo To exit QEMU running in -nographic mode, press \'Ctrl-A\' and then \'x\' 
 	$(QEMU_APP) -s -S -machine virt -kernel $(EXECUTABLE) -smp $(CPUS) -bios none $(QEMU_DISPLAYS)

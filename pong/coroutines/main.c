@@ -2,7 +2,7 @@
  * Example software running in Logisim RISC-V Computer System model by Pavel Gladyshev
  * licensed under Creative Commons Attribution International license 4.0
  *
- * This example shows how graphics display can be used to dsisplay a dot bouncing
+ * This example shows how graphics display can be used to display a dot bouncing
  * off the screen borders.
  *
  * the position of the ball can be changed by typing new x,y coordinates on the keyboard
@@ -52,14 +52,14 @@ void main()
 {
    bouncer_context.sp = &(bouncer_stack[255]); // points to the last element in bouncer stack
    bouncer_context.ra = bouncer_task;
-   reader_context.sp = &(reader_stack[255]); // points to the last element in bouncer stack
+   reader_context.sp = &(reader_stack[255]); // points to the last element in reader stack
    reader_context.ra = reader_task;
    swtch(&main_context, &bouncer_context); // start bouncer task
 }
 
 void bouncer_task()
 {
-   // initiall position of the dot
+   // initial position of the dot
    x = 10;
    y = 10;
 
@@ -95,7 +95,7 @@ void bouncer_task()
       if ((new_y < 0) || (new_y >= VGA_HEIGHT))
       {
          dy = -dy;       // bounce along y
-         new_y = y + dy; // reclaculate
+         new_y = y + dy; // recalculate
       }
 
       VGA_PLOT(x, y, 0x000000);           // erase the dot by making it black

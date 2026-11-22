@@ -51,7 +51,7 @@ struct trap_frame {
 
 typedef struct trap_frame trap_frame_t;
 
-/* writes address of the asembly language trap_handler routine into CPU's mtvec register 
+/* writes address of the assembly language trap_handler routine into CPU's mtvec register 
  * and writes the address of the trap_frame structure into CPU's mscratch register 
  */
 void set_trap_handler(void (*trap_handler)(trap_frame_t *),trap_frame_t *trap_frame);
@@ -66,7 +66,7 @@ void disable_interrupts();
 
 /* 
  * Assembly language interrupt and exception service routine, saves CPU registers, 
- * sets-up C program stack for C language interrrupt handler and calls trap_frame->c_trap()
+ * sets-up C program stack for C language interrupt handler and calls trap_frame->c_trap()
  */
 void trap_handler(trap_frame_t *trap_frame);
 

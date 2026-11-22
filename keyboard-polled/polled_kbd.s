@@ -24,7 +24,7 @@
       # algorithm: keep reading content of control
       # register while "new data arrived" bit (0) is 0
       # once that bit becomes 1, the new data can be
-      # read from the keyboard data regiser.  The act of
+      # read from the keyboard data register.  The act of
       # reading the data clears the "new data arrived" bit
       # in control register.
       
@@ -43,7 +43,7 @@ main:
       li s5,0            # index of the digit to be displayed
 loop:
       lw t0,0(s0)        # read content of receiver control register
-      beq t0,zero,skip   # if bit 0 is 0, skip to 7-segment display processing
+      beq t0,zero,skip   # if it is 0 (no character), skip to 7-segment display processing
       
       # new data has arrived      
       lw t1,(s1)         # read content of receiver data register

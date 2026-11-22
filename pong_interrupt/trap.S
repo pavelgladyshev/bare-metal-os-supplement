@@ -2,7 +2,7 @@
 
 # function set_trap_handler(trap_handler(), trap_frame_t*) stores the address 
 # of assembly language trap handling routine in mtvec register and
-# the address of the trap_frame data sturcture in mscratch register
+# the address of the trap_frame data structure in mscratch register
         .globl set_trap_handler
 set_trap_handler:
         csrw mtvec,a0
@@ -82,7 +82,7 @@ trap_handler:
         # load the address of C language trap handler, c_trap(), from trap_frame->c_trap
         lw t0, 8(a0)
 
-        # jump to c_trap(frap_frame_t *trap_frame)  giving trap_frame pointer as the parameter
+        # jump to c_trap_handler(trap_frame_t *trap_frame)  giving trap_frame pointer as the parameter
         jr t0
 
 

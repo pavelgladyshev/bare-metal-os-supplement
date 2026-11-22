@@ -82,11 +82,11 @@ next:
 	bgt s5,zero,minLoop   # while the number of remaining elements > 0, do the loop again
 
 	# all elements have been examined. s4 keeps the minimal value and s3 keeps the address
-	# of the coresponding .word in the array. Let's now swap it with the first element
+	# of the corresponding .word in the array. Let's now swap it with the first element
 	
 	lw t1,0(s2)            # t1 = old value of the first element of the array	                      
 	sw s4,0(s2)            # write the smallest found value into the first element                      
-	sw t1,0(s3)            # write old value of the first element where the smalles value 
+	sw t1,0(s3)            # write old value of the first element where the smallest value 
 	                       # used to be
 	                       
 	# to repeat the process with the rest of the array, we simply move s2 to the next element 

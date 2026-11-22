@@ -11,6 +11,12 @@
 block_storage.bin
 smp-counter-litmus/counter
 smp-counter-litmus/litmus
+smp-simple-assembly/smp-simple-assembly
+smp-simple-assembly/smp-simple-assembly.asm
+smp-boxes/smp-example
+smp-boxes/smp-example.asm
+smp-boxes-synchronised/smp-example-synchronized
+smp-boxes-synchronised/smp-example-synchronized.asm
 build/
 template/template
 template/template.asm
