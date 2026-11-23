@@ -11,6 +11,7 @@ is in [its own repository](https://github.com/pavelgladyshev/logos).
 | `assembly/` (`example1.s`, `memory.s`, `led.s`, `echo.s`, `max.s`, `looping.s`, `subroutine.s`, `sort-word-array.s`; `example.s` of chapter 4) | Logisim | 3, 4 |
 | `simple-asm/` | Logisim | 2 |
 | `simple-c/` | Logisim | 4, 5 |
+| `c-and-assembly/` (a C program that calls a function written in assembly language) | Logisim | 5 |
 | `pong/blocking/`, `pong/fsm/`, `pong/coroutines/` | Logisim | 4, 5, 12 |
 | `keyboard-polled/`, `keyboard-interrupt/` | Logisim | 13 |
 | `pong_interrupt/` | Logisim | 13 |

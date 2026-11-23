@@ -2,7 +2,7 @@
 # Tests the projects' Makefile targets (build, list, run, debug with gdb, gui) with the reference circuit
 # and Logisim jar, and prints one PASS or FAIL line per step; the exit status is 1 if any step failed.
 #
-#   tools/test_template.sh [project ...]       (default: template simple-asm simple-c pong/blocking
+#   tools/test_template.sh [project ...]       (default: template simple-asm simple-c c-and-assembly pong/blocking
 #                                                pong/fsm pong/coroutines pong_interrupt)
 #
 # Environment: CIRCUIT (for the projects that do not have their own) and LOGISIM_JAR (default: the files in ../ref, beside the worktree),
@@ -26,12 +26,13 @@ declare -A INFO=(
   [template]="template|template-rom.txt|Hi|halt|j *halt"
   [simple-asm]="simple-asm|simple-asm-rom.txt|Hi|halt|j *halt"
   [simple-c]="simple-c|simple-c-rom.txt|Hello world!|main|CONSOLE_DATA = c"
+  [c-and-assembly]="c-and-assembly|c-and-assembly-rom.txt|Hello from C, printed by assembly!|print|jr ra"
   [pong/blocking]="pong-blocking|pong-blocking.bin.txt|input new coords as X,Y<Enter>|main|<main>:"
   [pong/fsm]="pong-fsm|pong-fsm.bin.txt|input new coords as X,Y<Enter>|main|<main>:"
   [pong/coroutines]="pong-coroutines|pong-coroutines.bin.txt|input new coords as X,Y<Enter>|main|<main>:"
   [pong_interrupt]="pong_interrupt|pong_interrupt.bin.txt|input new coords as X,Y<Enter>|main|<main>:"
 )
-ALL="template simple-asm simple-c pong/blocking pong/fsm pong/coroutines pong_interrupt"
+ALL="template simple-asm simple-c c-and-assembly pong/blocking pong/fsm pong/coroutines pong_interrupt"
 PROJECTS=${*:-$ALL}
 
 failed=0

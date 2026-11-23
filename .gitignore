@@ -24,6 +24,8 @@ simple-asm/simple-asm
 simple-asm/simple-asm.asm
 simple-c/simple-c
 simple-c/simple-c.asm
+c-and-assembly/c-and-assembly
+c-and-assembly/c-and-assembly.asm
 pong/blocking/pong-blocking
 pong/blocking/pong-blocking.asm
 pong/fsm/pong-fsm

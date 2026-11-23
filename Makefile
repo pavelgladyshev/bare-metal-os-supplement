@@ -24,7 +24,7 @@ ifndef RISCV_TOOL_PREFIX
   endif
 endif
 
-LOGISIM_PROJECTS = template simple-asm simple-c pong/blocking pong/fsm pong/coroutines pong_interrupt \
+LOGISIM_PROJECTS = template simple-asm simple-c c-and-assembly pong/blocking pong/fsm pong/coroutines pong_interrupt \
                    keyboard-polled keyboard-interrupt multitasking multitasking-racing multitasking-synchronised
 # assembly/ holds several programs with one Makefile: PROG names the program
 ASSEMBLY_PROGRAMS = example1 memory led echo max looping subroutine sort-word-array example
@@ -53,7 +53,7 @@ check:
 # Every Logisim project's Makefile has template/Makefile's common part, and the projects that run
 # on the one computer have the template's linker script unchanged. The Pong games have linker
 # scripts of their own: their computer has less RAM.
-ONE_COMPUTER = simple-asm simple-c assembly keyboard-polled keyboard-interrupt multitasking \
+ONE_COMPUTER = simple-asm simple-c c-and-assembly assembly keyboard-polled keyboard-interrupt multitasking \
                multitasking-racing multitasking-synchronised
 check-template:
 	tools/check_template.sh $(LOGISIM_PROJECTS) assembly -- $(ONE_COMPUTER)
