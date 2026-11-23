@@ -6,8 +6,8 @@
 #   make run-counter   runs counter in QEMU (Ctrl-A, then x, leaves QEMU)
 #   make run-litmus    runs litmus in QEMU
 
-# Tool name prefix (Homebrew on a Mac: make RISCV_TOOL_PREFIX=riscv64-elf-)
-RISCV_TOOL_PREFIX=riscv64-unknown-elf-
+# Tool name prefix (Homebrew on a Mac: export RISCV_TOOL_PREFIX=riscv64-elf-, or make RISCV_TOOL_PREFIX=riscv64-elf-)
+RISCV_TOOL_PREFIX?=riscv64-unknown-elf-
 
 CFLAGS = -O -march=rv32ima_zicsr -mabi=ilp32 -mcmodel=medany -ffreestanding -nostdlib -g
 QEMU   = qemu-system-riscv32 -machine virt -smp 2 -bios none -nographic

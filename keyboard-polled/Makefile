@@ -57,7 +57,7 @@ ROM_IMAGE_TXT = $(ROM_IMAGE).txt
 .DEFAULT_GOAL = $(ROM_IMAGE_TXT)
 
 # Tool name prefix
-RISCV_TOOL_PREFIX=riscv64-unknown-elf-
+RISCV_TOOL_PREFIX?=riscv64-unknown-elf-
 
 # RISC-V instruction set architecture to use when compiling the program (RV32IM by default).
 # A program that uses CSR instructions (interrupts) needs rv32im_zicsr: set it above, next to EXECUTABLE

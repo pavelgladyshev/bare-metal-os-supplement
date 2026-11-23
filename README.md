@@ -39,7 +39,8 @@ make check      # says which tools were found
 ```
 
 Each project also builds on its own, with `make` in its folder. The projects' Makefiles name
-Ubuntu's compiler; on a Mac type `make RISCV_TOOL_PREFIX=riscv64-elf-` there.
+Ubuntu's compiler unless you say otherwise. On a Mac, say it once, in the shell's start-up file
+(`~/.zshrc`): `export RISCV_TOOL_PREFIX=riscv64-elf-`; or type `make RISCV_TOOL_PREFIX=riscv64-elf-`.
 
 - **Logisim projects** all run in the same way. In a project's folder:
 

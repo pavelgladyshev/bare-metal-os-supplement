@@ -6,7 +6,8 @@
 #   make check-template   say whether the projects' Makefiles still have template/Makefile's common part
 #
 # Each project also builds on its own: cd into its folder and type make. The projects'
-# Makefiles name Ubuntu's compiler (riscv64-unknown-elf-); with Homebrew's on a Mac, type
+# Makefiles name Ubuntu's compiler (riscv64-unknown-elf-) unless RISCV_TOOL_PREFIX says otherwise;
+# with Homebrew's on a Mac, put   export RISCV_TOOL_PREFIX=riscv64-elf-   in ~/.zshrc, or type
 #   make RISCV_TOOL_PREFIX=riscv64-elf-
 # there, or build from this folder, which finds the compiler by itself, as logOS does.
 

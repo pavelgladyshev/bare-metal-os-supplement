@@ -32,7 +32,7 @@ OBJECT_FILES = simple.o
 .DEFAULT_GOAL = $(EXECUTABLE)
 
 # Tool name prefix
-RISCV_TOOL_PREFIX=riscv64-unknown-elf-
+RISCV_TOOL_PREFIX?=riscv64-unknown-elf-
 
 # RISC-V instruction set architecture to use when compiling the program (RV32IM by default)
 RISCV_ISA=rv64g
