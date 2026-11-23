@@ -102,10 +102,10 @@ $(ROM_IMAGE_TXT) : clean $(ROM_IMAGE)
 	echo "v2.0 raw" >$(ROM_IMAGE_TXT)
 	hexdump -v -e '/4 "%08x""\n"""' $(ROM_IMAGE) >>$(ROM_IMAGE_TXT)
 
-# command to delete all executable and object files and their derivatives as a way of forcing complete rebuild of the project
+# command to delete all executable and object files and their derivatives as a way of forcing complete rebuild of the project (the disk, $(BUILD_DIR)/block_storage.bin, is kept)
 clean: 
 	rm -f $(OBJECT_FILES) $(ROM_IMAGE_TXT) $(ROM_IMAGE) $(EXECUTABLE) $(EXECUTABLE).map $(EXECUTABLE).sym $(EXECUTABLE).asm 
-	rm -rf $(BUILD_DIR)
+	rm -f $(BUILD_DIR)/*.circ; rmdir $(BUILD_DIR) 2>/dev/null || true
 
 # ------------------------------------
 # Running the program in Logisim

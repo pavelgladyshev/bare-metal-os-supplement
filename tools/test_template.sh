@@ -144,7 +144,7 @@ for p in $PROJECTS; do
 
   # make clean
   mk clean > "$TMP/$safe-clean.log" 2>&1
-  check "$p" "make clean (no ELF file, no ROM image left)" test ! -e "$dir/$exe" -a ! -e "$dir/$rom" -a ! -e "$dir/build"
+  check "$p" "make clean (no ELF file, no ROM image, no circuit copy left)" test ! -e "$dir/$exe" -a ! -e "$dir/$rom" -a -z "$(ls "$dir"/build/*.circ 2>/dev/null)"
 
   # make
   mk > "$TMP/$safe-make.log" 2>&1
