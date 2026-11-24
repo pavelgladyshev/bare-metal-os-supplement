@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Operating Systems from the Bare Metal Up</title>
-<meta name="description" content="A book that teaches operating systems by building one, logOS, on a simulated RISC-V computer. Sample chapters, example code and set-up instructions.">
+<meta name="description" content="A book that teaches operating systems by building an operating system, logOS, step by step on a simulated RISC-V computer. Sample chapters, example code and set-up instructions.">
 <style>
   :root {
     --bg: #fbfaf6; --ink: #1c2530; --muted: #5a6573; --rule: #dcd6c8;
@@ -49,12 +49,16 @@
   <p class="sub">Building logOS on a simulated RISC-V computer</p>
   <p class="author">Pavel Gladyshev</p>
 
-  <p>This book teaches operating systems by building one. It starts with a small RISC-V computer
-  that you can inspect down to the gates, and climbs from the hardware upwards: assembly language
-  and C with nothing underneath, then a file system, system calls and a shell, then processes,
-  interrupts and pipes, and finally virtual memory and protection. Along the way a small Unix-like
-  system, logOS, grows through three versions, and every listing in the book is code you can
-  build, run and change.</p>
+  <p>This book teaches operating systems by building an operating system step by step. It starts
+  with a simulated RISC-V computer that has no software on it at all, and it ends with a small
+  Unix-like operating system, logOS, in which every process runs in a separate address space and
+  the hardware stops it from touching anything else. At every step there is a concept and one or
+  more programs that you can run, read and change.</p>
+
+  <p>On the way it climbs from the hardware upwards: assembly language and C with nothing
+  underneath, then a file system, system calls and a shell, then processes, interrupts and pipes,
+  and finally virtual memory and protection, while logOS grows through three versions, Belfield,
+  Blackrock and Glendalough.</p>
 
   <h2>Read a sample</h2>
   <p>Two chapters of the draft: Chapter 1, the introduction to operating systems and to the book,
