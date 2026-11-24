@@ -59,7 +59,7 @@ ROM_IMAGE ?= $(EXECUTABLE)-rom
 ROM_IMAGE_TXT = $(ROM_IMAGE).txt
 
 # what will be built, if make command is run without parameters
-.DEFAULT_GOAL = $(ROM_IMAGE_TXT)
+.DEFAULT_GOAL := $(ROM_IMAGE_TXT)
 
 # Tool name prefix
 RISCV_TOOL_PREFIX?=riscv64-unknown-elf-

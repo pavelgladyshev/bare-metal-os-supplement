@@ -29,7 +29,7 @@ OBJECT_FILES = simple.o
 # ------------------------------------
 
 # what will be built, if make command is run without parameters
-.DEFAULT_GOAL = $(EXECUTABLE)
+.DEFAULT_GOAL := $(EXECUTABLE)
 
 # Tool name prefix
 RISCV_TOOL_PREFIX?=riscv64-unknown-elf-
