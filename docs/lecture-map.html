@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lecture plan · Operating Systems from the Bare Metal Up</title>
+<meta name="description" content="A plan for teaching a twelve-week course of 24 lectures from the book, with the core sections of each lecture and the ones that can be left for reading.">
+<style>
+  :root {
+    --bg: #fbfaf6; --ink: #1c2530; --muted: #5a6573; --rule: #dcd6c8;
+    --accent: #1f5f9e; --panel: #ffffff; --code-bg: #f1eee6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #141a21; --ink: #e9e6de; --muted: #a3acb8; --rule: #323c48;
+            --accent: #7fb4ea; --panel: #1b232c; --code-bg: #222c37; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font: 18px/1.6 Georgia, "Iowan Old Style", "Palatino Linotype", serif; }
+  main { max-width: 46rem; margin: 0 auto; padding: 3.5rem 1.25rem 4rem; }
+  h1 { font-size: clamp(2rem, 6vw, 3rem); line-height: 1.12; margin: 0 0 .5rem; letter-spacing: -.01em; }
+  .sub { font-size: 1.25rem; color: var(--muted); margin: 0 0 .4rem; }
+  .author { margin: 0 0 2.2rem; }
+  h2 { font: 600 1.05rem/1.3 system-ui, -apple-system, "Segoe UI", sans-serif; letter-spacing: .06em;
+       text-transform: uppercase; color: var(--muted); margin: 2.8rem 0 .8rem;
+       padding-top: 1.4rem; border-top: 1px solid var(--rule); }
+  p { margin: 0 0 1rem; }
+  a { color: var(--accent); text-underline-offset: .15em; }
+  .button { display: inline-block; margin: .4rem 0 0; padding: .7rem 1.2rem; border-radius: .4rem;
+            background: var(--accent); color: var(--bg); text-decoration: none;
+            font: 600 1rem system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .note { color: var(--muted); font-size: .95rem; }
+  ol, ul { padding-left: 1.3rem; margin: 0 0 1rem; }
+  li { margin: .35rem 0; }
+  code, pre { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: .88em; }
+  code { background: var(--code-bg); padding: .08em .35em; border-radius: .25rem; }
+  pre { background: var(--code-bg); padding: .9rem 1rem; border-radius: .4rem; overflow-x: auto; margin: 0 0 1rem; }
+  pre code { background: none; padding: 0; }
+  table { border-collapse: collapse; width: 100%; margin: 0 0 1rem; font-size: .95rem; }
+  th, td { text-align: left; padding: .45rem .6rem .45rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  th { font: 600 .85rem system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--muted); }
+  .scroll { overflow-x: auto; }
+  footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: .9rem; }
+</style>
+<style>
+  .core { font-weight: 600; }
+  .opt { color: var(--muted); }
+  td:first-child { white-space: nowrap; }
+</style>
+</head>
+<body>
+<main>
+  <h1>A lecture plan</h1>
+  <p class="sub">Operating Systems from the Bare Metal Up in twelve weeks</p>
+  <p class="author"><a href="index.html">Back to the book's page</a></p>
+
+  <p>The book was written for a module of twelve weeks with two lectures a week. This plan fits it into
+  those 24 lectures. For each lecture it names the <span class="core">core</span> sections, which later
+  chapters build on, and the sections that can be <span class="opt">left for reading</span>. Every
+  chapter's &ldquo;In real systems&rdquo; section, its history boxes and Appendices A and B are reading
+  throughout. Section numbers are those of the book.</p>
+
+  <p>Chapter 2 (first steps with the tools) and Appendix C (setting up) belong in the first laboratory
+  session rather than a lecture, and Chapter 10 (shell scripting) and Appendix F in private study.
+  Chapter 22 (multiprocessors) can replace Lecture 23 for a class with more interest in hardware than
+  in security.</p>
+
+  <h2>Part I: the machine</h2>
+  <div class="scroll">
+  <table>
+    <tr><th>Lecture</th><th>Chapter</th><th>Core</th><th>For reading</th></tr>
+    <tr><td>1</td><td>1. What is an operating system?</td><td class="core">1.1&ndash;1.7</td><td class="opt">1.8&ndash;1.10</td></tr>
+    <tr><td>2</td><td>3. Assembly language (1)</td><td class="core">3.1&ndash;3.7</td><td class="opt">&mdash;</td></tr>
+    <tr><td>3</td><td>3. Assembly language (2)</td><td class="core">3.8&ndash;3.13</td><td class="opt">3.14</td></tr>
+    <tr><td>4</td><td>4. From source code to a running program</td><td class="core">4.1&ndash;4.9, 4.12</td><td class="opt">4.10, 4.11, 4.13&ndash;4.15</td></tr>
+    <tr><td>5</td><td>5. C on bare metal</td><td class="core">5.1&ndash;5.9, 5.12&ndash;5.13</td><td class="opt">5.10, 5.11, 5.14</td></tr>
+  </table>
+  </div>
+
+  <h2>Part II: the operating system from the outside</h2>
+  <div class="scroll">
+  <table>
+    <tr><th>Lecture</th><th>Chapter</th><th>Core</th><th>For reading</th></tr>
+    <tr><td>6</td><td>6. Booting</td><td class="core">6.1&ndash;6.4, 6.6, 6.8</td><td class="opt">6.5 (MS-DOS), 6.7</td></tr>
+    <tr><td>7</td><td>7. File systems</td><td class="core">7.1&ndash;7.7, 7.9&ndash;7.13</td><td class="opt">7.8, 7.14&ndash;7.16</td></tr>
+    <tr><td>8</td><td>8. System calls (1): the Unix interface</td><td class="core">8.1&ndash;8.9</td><td class="opt">&mdash;</td></tr>
+    <tr><td>9</td><td>8. System calls (2): Belfield's system calls</td><td class="core">8.10&ndash;8.15</td><td class="opt">8.16, 8.17</td></tr>
+    <tr><td>10</td><td>9. The Unix shell</td><td class="core">9.1&ndash;9.7, 9.9&ndash;9.13</td><td class="opt">9.8, 9.14&ndash;9.16; Chapter 10</td></tr>
+    <tr><td>11</td><td>11. logOS Belfield</td><td class="core">11.1&ndash;11.4, 11.9&ndash;11.12</td><td class="opt">11.5&ndash;11.8, 11.13, 11.14</td></tr>
+  </table>
+  </div>
+
+  <h2>Part III: doing many things at once</h2>
+  <div class="scroll">
+  <table>
+    <tr><th>Lecture</th><th>Chapter</th><th>Core</th><th>For reading</th></tr>
+    <tr><td>12</td><td>12. Cooperative multitasking</td><td class="core">12.1&ndash;12.9</td><td class="opt">12.10</td></tr>
+    <tr><td>13</td><td>13. Interrupts</td><td class="core">13.2&ndash;13.7, 13.10</td><td class="opt">13.1, 13.8, 13.9</td></tr>
+    <tr><td>14</td><td>14. Preemptive multitasking</td><td class="core">14.1&ndash;14.7, 14.9</td><td class="opt">14.8, 14.10</td></tr>
+    <tr><td>15</td><td>15. Blackrock (1): processes and the scheduler</td><td class="core">15.1&ndash;15.5</td><td class="opt">&mdash;</td></tr>
+    <tr><td>16</td><td>15. Blackrock (2): blocking, fork, exec, wait</td><td class="core">15.6&ndash;15.8, 15.10</td><td class="opt">15.9, 15.11</td></tr>
+    <tr><td>17</td><td>16. Pipes</td><td class="core">16.1&ndash;16.6</td><td class="opt">16.7, 16.8</td></tr>
+    <tr><td>18</td><td>17. Scheduling</td><td class="core">17.1&ndash;17.5, 17.7&ndash;17.9</td><td class="opt">17.6, 17.10</td></tr>
+    <tr><td>19</td><td>18. Synchronisation</td><td class="core">18.1&ndash;18.7</td><td class="opt">18.8, 18.9</td></tr>
+    <tr><td>20</td><td>19. Semaphores, deadlock and monitors</td><td class="core">19.3&ndash;19.5, 19.7, 19.8</td><td class="opt">19.1, 19.2, 19.6, 19.9</td></tr>
+  </table>
+  </div>
+
+  <h2>Part IV: sharing the machine safely</h2>
+  <div class="scroll">
+  <table>
+    <tr><th>Lecture</th><th>Chapter</th><th>Core</th><th>For reading</th></tr>
+    <tr><td>21</td><td>20. Virtual memory</td><td class="core">20.1&ndash;20.3, 20.5, 20.6, 20.8, 20.9</td><td class="opt">20.4, 20.7, 20.10</td></tr>
+    <tr><td>22</td><td>21. logOS Glendalough</td><td class="core">21.1, 21.2, 21.4&ndash;21.9</td><td class="opt">21.3, 21.10&ndash;21.12</td></tr>
+    <tr><td>23</td><td>23. Protection and access control</td><td class="core">23.2, 23.3, 23.5&ndash;23.7, 23.9, 23.10</td><td class="opt">23.1, 23.4, 23.8, 23.11</td></tr>
+    <tr><td>24</td><td>24. Conclusion, and revision</td><td class="core">24.1, 24.2</td><td class="opt">24.3&ndash;24.5; Chapter 22</td></tr>
+  </table>
+  </div>
+
+  <h2>Laboratory sessions</h2>
+  <p>Each chapter's exercises are tagged by kind: Understand, Trace, Linux, Modify, Measure, Design and
+  Project. The Modify and Project exercises on Blackrock and Glendalough can be checked against the
+  test suites of Appendix D, which makes them suitable for assessed laboratory work.</p>
+
+  <footer>
+    <p>Text © Pavel Gladyshev.</p>
+  </footer>
+</main>
+</body>
+</html>
