@@ -50,6 +50,8 @@ assembly/subroutine
 assembly/subroutine.asm
 assembly/sort-word-array
 assembly/sort-word-array.asm
+assembly/example
+assembly/example.asm
 keyboard-polled/keyboard-polled
 keyboard-polled/keyboard-polled.asm
 keyboard-interrupt/keyboard-interrupt
